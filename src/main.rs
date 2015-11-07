@@ -100,10 +100,10 @@ fn read_temperature(handle: &mut libusb::DeviceHandle) -> Option<f32> {
 
     for i in INTERFACES {
         let interface = *i;
-        match handle.kernel_driver_active(*i) {
+        match handle.kernel_driver_active(interface) {
             Ok(true) => { match handle.detach_kernel_driver(interface) {
                             Ok(_) => {},
-                            Err(e) => panic!("failed to detach kernel driver{}: {}", i, e),
+                            Err(e) => panic!("failed to detach kernel driver{}: {}", interface, e),
                         }
             },
             Ok(false) => {},
@@ -117,9 +117,10 @@ fn read_temperature(handle: &mut libusb::DeviceHandle) -> Option<f32> {
     }
 
     for i in INTERFACES {
-        match handle.claim_interface(*i) {
+        let interface = *i;
+        match handle.claim_interface(interface) {
             Ok(_) => {},
-            Err(e) => panic!("failed to claim interface {}: {}", i, e),
+            Err(e) => panic!("failed to claim interface {}: {}", interface, e),
         }
     }
 
