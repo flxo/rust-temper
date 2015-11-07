@@ -1,0 +1,7 @@
+[package]
+name = "temper"
+version = "0.1.0"
+authors = ["Felix Obenhuber <felix@obenhuber.de>"]
+
+[dependencies]
+libusb = "0.2"
