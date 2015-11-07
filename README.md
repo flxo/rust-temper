@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/flxo/rust_temper.svg?branch=master)](http://travis-ci.org/flxo/rust_temper)
+[![Build Status](https://travis-ci.org/flxo/rust-temper.svg?branch=master)](http://travis-ci.org/flxo/rust-temper)
 
 Rust Temper
 ===========
